@@ -23,5 +23,17 @@ export class ExemplosPipesComponent {
   addCurso(valor: any) {
     this.livros.push(valor);
   }
+
+  obterCursos() {
+    if (this.livros.length === 0 || this.filtro === undefined) {
+      return this.livros;
+    }
+    return this.livros.filter((v) => {
+      if (v.toLocaleLowerCase().indexOf(this.filtro.toLocaleLowerCase()) >= 0) {
+        return true;
+      }
+      return false;
+    });
+  }
   
 }
